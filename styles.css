@@ -305,28 +305,7 @@ nav {
     margin-bottom: 5px;
 }
 
-.news-card h3 {
-    font-size: 16px; /* Slightly reduced font size */
-    margin: 0 0 10px 0;
-    color: #2c3e50;
-    /* Increased to 3 lines */
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
 
-.news-card p {
-    font-size: 14px;
-    color: #7f8c8d;
-    margin: 0;
-    flex-grow: 1;
-    /* Increased to 5 lines */
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
 
 .carousel-button {
     position: absolute;
@@ -2737,4 +2716,99 @@ nav {
     padding: 3rem 0;
 }
 
-/* ... (rest of the styles remain the same) ... */
+/* Estilos para hacer más visibles los botones de navegación */
+
+/* Estilo general para los botones de navegación */
+#prev1, #next1, #prev2, #next2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0.7; /* Siempre visible, pero sutil */
+  }
+  
+  /* Efecto al pasar el mouse */
+  #prev1:hover, #next1:hover, #prev2:hover, #next2:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+    transform: scale(1.1);
+    border-color: white;
+  }
+  
+  /* Asegurar que las flechas son más visibles */
+  #prev1 i, #next1 i, #prev2 i, #next2 i {
+    font-size: 18px; /* Aumentar tamaño del icono */
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Añadir un efecto de resplandor al pasar el mouse */
+  #prev1:hover i, #next1:hover i, #prev2:hover i, #next2:hover i {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Estilo específico para los contenedores de galería */
+  #columna1, #columna2 {
+    position: relative;
+  }
+  
+  /* Agregar un indicador visual para que sepan que pueden navegar */
+  #columna1::after, #columna2::after {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    pointer-events: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  #columna1::after {
+    content: "Desliza para ver más";
+  }
+  
+  #columna2::after {
+    content: "Desliza para ver más";
+  }
+  
+  #columna1:hover::after, #columna2:hover::after {
+    opacity: 0; /* Desaparece al pasar el ratón */
+  }
+  
+  /* Añadir un efecto sutíl al contenedor para indicar que es interactivo */
+  #columna1, #columna2 {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Indicador visual de que puede hacer clic para ampliar */
+  .galeria {
+    position: relative;
+  }
+  
+  /* Hacerlo responsivo para dispositivos móviles */
+  @media (max-width: 768px) {
+    #prev1, #next1, #prev2, #next2 {
+      width: 36px;
+      height: 36px;
+      opacity: 0.8; /* Más visible en móviles */
+    }
+    
+    #columna1::after, #columna2::after {
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+  }
